@@ -56,18 +56,17 @@ a {
 /************ CONTAINER **************/
 .container {
   width: 100vw;
-  height: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  place-items: center;
 }
 
 .card {
   background-color: #e5e5e5;
-  width: 410px;
-  height: 610px;
+  width: 330px;
+  height: auto;
   overflow: hidden;
   border-radius: 30px;
   -webkit-box-shadow: 0px 10px 13px -7px #000000,
@@ -139,50 +138,7 @@ img:hover {
 .footerText {
   padding: 15px;
   padding-top: 0;
-}
-
-/* Tablet */
-@media screen and (max-width: 768px) {
-  .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .card {
-    width: 350px;
-    height: auto;
-    margin: auto;
-  }
-}
-
-/* Mobile */
-@media screen and (max-width: 375px) {
-  .container {
-    display: grid;
-    grid-auto-columns: 1fr;
-  }
-
-  .card {
-    grid-column: 1;
-    height: 550px;
-    width: 300px;
-    margin: 15px;
-  }
-
-  .one {
-    margin-top: 5px;
-  }
-}
-
-/* Desktop */
-@media screen and (min-width: 768px) {
-  .container {
-    display: grid;
-    grid-template-rows: 1fr;
-  }
-
-  .card {
-    grid-row: 1;
-  }
+  margin-bottom: 30px;
 }
 
 /******* MODIFICHE AL FOOTER DELLA PAGINA ********/
@@ -206,4 +162,42 @@ img:hover {
 .footer-page a:hover {
   color: #2d3582;
   transition: 0.5s;
+}
+/*  ------------------------
+          MEDIAQUERY
+---------------------------- */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .container {
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    margin: 15% auto;
+  }
+
+  .three {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .footer-page {
+    bottom: auto;
+  }
+}
+
+/* Mobile */
+@media (max-width: 375px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card {
+    grid-column: 1;
+  }
+
+  .one {
+    margin-top: 5px;
+  }
 }
